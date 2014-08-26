@@ -4,6 +4,7 @@ var gameLayer = cc.Layer.extend({
 	timeElapsed:0.0,
 	coolingPeriod:0.0,
 	shooter:null,
+	gameState:0,
 	ctor:function () {
 		//////////////////////////////
 		// 1. super init first
@@ -11,8 +12,10 @@ var gameLayer = cc.Layer.extend({
 
 		// add "HelloWorld" splash screen"
 		this.sprite = new cc.Sprite(res.plane_png);
+		this.sprite.setPosition(cc.winSize.width / 2,cc.winSize.height / 2);
+		this.sprite.scale = 0.5;
 		this.addChild(this.sprite, 0);
-		this.shooter = new Shooter (this, this.sprite);
+//		this.shooter = new Shooter (this, this.sprite);
 	
 		if (cc.sys.capabilities.hasOwnProperty('touches')){
 			cc.log("touches detected");
@@ -27,25 +30,21 @@ var gameLayer = cc.Layer.extend({
 		else{
 			cc.log("no touches detected");
 		}
-		
-		this.init()
+//		this.init();
+		this.scheduleUpdate();
 		return true;
 	},
 	
 	
 	init:function (){
-		this.sprite.attr({
-			x: cc.winSize.width / 2,
-			y: cc.winSize.height / 2,
-			scale: 0.5,
-			rotation: 0
-		});
 		this.timeElapsed = 0.0;
 		this.coolingPeriod = 0;
-		this.scheduleUpdate();
+		this.gameState = 1;
 	},
 	
 	processEvent:function (event) {
+		if (this.gameState == 0)
+			return;
 		var delta = event.getDelta();
 		var curPos = cc.p(this.sprite.x, this.sprite.y);
 		curPos = cc.pAdd(curPos, delta);
@@ -56,6 +55,8 @@ var gameLayer = cc.Layer.extend({
 	},
 	
 	update:function (dt) {
+		if (this.gameState == 0)
+			return;
 		this.timeElapsed += dt;
 		this.coolingPeriod += dt;
 		if (this.coolingPeriod > 5.0){
