@@ -59,8 +59,8 @@ var gameLayer = cc.Layer.extend({
 			return;
 		this.timeElapsed += dt;
 		this.coolingPeriod += dt;
-		if (this.coolingPeriod > 2.0){
-//			this.shooter.fireBullets (10);
+		if (this.coolingPeriod > 5.0){
+			this.shooter.fireBullets (50);
 			this.coolingPeriod = 0.0;
 		}
 		if (this.shooter.isTargetDead()){
