@@ -1,3 +1,4 @@
+
 //bullet
 var Bullet = cc.Sprite.extend({
 	active:false,
@@ -20,4 +21,5 @@ var Bullet = cc.Sprite.extend({
 			this.visible = false;
 		}
 	}
+
 });

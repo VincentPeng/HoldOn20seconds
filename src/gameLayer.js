@@ -13,6 +13,19 @@ var gameLayer = cc.Layer.extend({
 		this.sprite = new cc.Sprite(res.plane_png);
 		this.addChild(this.sprite, 0);
 		this.shooter = new Shooter (this,sprite);
+
+		
+		this.bullet = new cc.Sprite(res.bullet_png);
+		this.bullet.attr({
+			x: 20,
+			y: 20
+		});
+		this.addChild(this.bullet, 0);
+		var director = cc.director;
+		var s = director.getWinSize();
+		var actionTo = cc.moveTo(20, cc.p(s.width - 40, s.height - 40));
+		this.bullet.runAction(actionTo);
+		
 		if (cc.sys.capabilities.hasOwnProperty('touches')){
 			cc.log("touches detected");
 			cc.eventManager.addListener({
