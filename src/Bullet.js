@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //bullet
 var Bullet = cc.Sprite.extend({
 	active:false,
@@ -20,4 +21,11 @@ var Bullet = cc.Sprite.extend({
 			this.visible = false;
 		}
 	}
+=======
+var bullet = cc.Sprite.Extend({
+	
+	randomShoot:function(){
+		Math.ran
+	},
+>>>>>>> 251533311a6a32edb4073738c9e6f3da07da342e
 });
