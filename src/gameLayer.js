@@ -12,8 +12,10 @@ var gameLayer = cc.Layer.extend({
 
 		// add "HelloWorld" splash screen"
 		this.sprite = new cc.Sprite(res.plane_png);
+		this.sprite.setPosition(cc.winSize.width / 2,cc.winSize.height / 2);
+		this.sprite.scale = 0.5;
 		this.addChild(this.sprite, 0);
-		this.shooter = new Shooter (this, this.sprite);
+//		this.shooter = new Shooter (this, this.sprite);
 	
 		if (cc.sys.capabilities.hasOwnProperty('touches')){
 			cc.log("touches detected");
@@ -28,22 +30,16 @@ var gameLayer = cc.Layer.extend({
 		else{
 			cc.log("no touches detected");
 		}
-		
-		this.init()
+//		this.init();
+		this.scheduleUpdate();
 		return true;
 	},
 	
 	
 	init:function (){
-		this.sprite.attr({
-			x: cc.winSize.width / 2,
-			y: cc.winSize.height / 2,
-			scale: 0.5,
-			rotation: 0
-		});
 		this.timeElapsed = 0.0;
 		this.coolingPeriod = 0;
-		this.scheduleUpdate();
+		this.gameState = 1;
 	},
 	
 	processEvent:function (event) {
@@ -64,7 +60,7 @@ var gameLayer = cc.Layer.extend({
 		this.timeElapsed += dt;
 		this.coolingPeriod += dt;
 		if (this.coolingPeriod > 2.0){
-			this.shooter.fireBullets (10);
+//			this.shooter.fireBullets (10);
 			this.coolingPeriod = 0.0;
 		}
 /*		if (this.shooter.planedShooted()){

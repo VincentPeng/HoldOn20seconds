@@ -45,7 +45,7 @@ var preGameLayer = cc.Layer.extend({
 	onNewGame:function(){
 		cc.log("Game starts");
 		this.removeFromParent();
-		this.theGameLayer.gameState = 1;
+		this.theGameLayer.init();
 	},
 	
 	onAbout:function(){
