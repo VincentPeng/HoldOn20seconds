@@ -15,7 +15,7 @@ var gameLayer = cc.Layer.extend({
 		this.sprite.setPosition(cc.winSize.width / 2,cc.winSize.height / 2);
 		this.sprite.scale = 0.5;
 		this.addChild(this.sprite, 0);
-//		this.shooter = new Shooter (this, this.sprite);
+		this.shooter = new Shooter (this, this.sprite);
 	
 		if (cc.sys.capabilities.hasOwnProperty('touches')){
 			cc.log("touches detected");
@@ -37,9 +37,11 @@ var gameLayer = cc.Layer.extend({
 	
 	
 	init:function (){
+		this.sprite.setPosition(cc.winSize.width / 2,cc.winSize.height / 2);
 		this.timeElapsed = 0.0;
 		this.coolingPeriod = 0;
 		this.gameState = 1;
+		this.shooter.fireBullets(50);
 	},
 	
 	processEvent:function (event) {
@@ -63,8 +65,10 @@ var gameLayer = cc.Layer.extend({
 			this.shooter.fireBullets (50);
 			this.coolingPeriod = 0.0;
 		}
-/*		if (this.shooter.planedShooted()){
-			cc.log("Game Over");
-		}*/
+		if (this.shooter.isTargetDead()){
+			var overLayer = new gameOverLayer(this);
+			this.gameState = 0;
+			this.addChild(overLayer);
+		}
 	},
 });
