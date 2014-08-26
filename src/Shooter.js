@@ -114,17 +114,17 @@ var Shooter = cc.Class.extend({
 		
 		isCollide:function (a, b) {
 			var ax = a.x, ay = a.y, bx = b.x, by = b.y;
-			if (Math.abs(ax - bx) > MAX_CONTAINT_WIDTH || Math.abs(ay - by) > MAX_CONTAINT_HEIGHT)
-				return false;
+			if (Math.abs(ax - bx) < 32 && Math.abs(ay - by) < 32)
+				return true;
 
-			var aRect = a.collideRect(ax, ay);
+/*			var aRect = a.collideRect(ax, ay);
 			var bRect = b.collideRect(bx, by);
-			return cc.rectIntersectsRect(aRect, bRect);
+			return cc.rectIntersectsRect(aRect, bRect);*/
 		},
 		
 		isTargetDead:function() {
-			for(var i=0;i<bulletSet.length;i++) {
-				if(bulletSet[i].active && this.isCollide(bulletSet[i], this.plane))
+			for(var i=0;i<this.bulletSet.length;i++) {
+				if(this.bulletSet[i].active && this.isCollide(this.bulletSet[i], this.plane))
 					return true;
 			}
 			return false;

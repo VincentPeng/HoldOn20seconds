@@ -10,10 +10,15 @@ var gameOverLayer = cc.Layer.extend({
 		overLogo.attr({
 			anchorX: 0,
 			anchorY: 0,
-			x: 0,
-			y: 500
+			x: cc.winSize.width / 2 - 170,
+			y: 600
 		});
-		this.addChild(logo);
+		this.addChild(overLogo);
+		
+		var intro_Label = new cc.LabelTTF('Score: ' + Math.floor(this.theGameLayer.timeElapsed) + ' s',  'Times New Roman', 40, cc.size(600,80), cc.TEXT_ALIGNMENT_CENTER);
+		var size = cc.winSize;
+		intro_Label.setPosition(size.width/2, size.height/2 - 50);
+		this.addChild(intro_Label);
 		
 		var playAgainNormal = new cc.Sprite(res.menu_png, cc.rect(378, 0, 126, 33));
 		var playAgainSelected = new cc.Sprite(res.menu_png, cc.rect(378, 33, 126, 33));
@@ -22,11 +27,12 @@ var gameOverLayer = cc.Layer.extend({
 		var playAgain = new cc.MenuItemSprite(playAgainNormal, playAgainSelected, playAgainDisabled, function(){
 			this.onResetGame();
 		}.bind(this) );
+		playAgain.scale = 2.0;
 
 		var menu = new cc.Menu(playAgain);
 		this.addChild(menu);
-		menu.x = winSize.width / 2;
-		menu.y = 220;
+		menu.x = cc.winSize.width / 2;
+		menu.y = 400;
 		
 		return true;
 	},
