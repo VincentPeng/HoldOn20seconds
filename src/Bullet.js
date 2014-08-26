@@ -9,6 +9,7 @@ var Bullet = cc.Sprite.extend({
 		this._super(res.bullet);
 		this.xVelocity= xVec
 		this.yVelocity = yVec;
+		this.scheduleUpdate();
 	},
 	update:function (dt) {
 		if (this.active == false)
