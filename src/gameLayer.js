@@ -4,6 +4,7 @@ var gameLayer = cc.Layer.extend({
 	timeElapsed:0.0,
 	coolingPeriod:0.0,
 	shooter:null,
+	gameState:0,
 	ctor:function () {
 		//////////////////////////////
 		// 1. super init first
@@ -46,6 +47,8 @@ var gameLayer = cc.Layer.extend({
 	},
 	
 	processEvent:function (event) {
+		if (this.gameState == 0)
+			return;
 		var delta = event.getDelta();
 		var curPos = cc.p(this.sprite.x, this.sprite.y);
 		curPos = cc.pAdd(curPos, delta);
@@ -56,6 +59,8 @@ var gameLayer = cc.Layer.extend({
 	},
 	
 	update:function (dt) {
+		if (this.gameState == 0)
+			return;
 		this.timeElapsed += dt;
 		this.coolingPeriod += dt;
 		if (this.coolingPeriod > 2.0){

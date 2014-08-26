@@ -15,6 +15,7 @@
         "src/app.js",
         "src/gameLayer.js",
         "src/Shooter.js",
-        "src/Bullet.js"
+        "src/Bullet.js",
+        "src/PreGameLayer.js"
     ]
 }
