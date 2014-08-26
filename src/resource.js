@@ -3,7 +3,7 @@ var res = {
     CloseNormal_png : "res/CloseNormal.png",
     CloseSelected_png : "res/CloseSelected.png",
     plane_png: "res/plane.png",
-    bullet_png: "res/bullet_red.png"
+    bullet:"res/bullet_red.png"
 };
 
 var g_resources = [];

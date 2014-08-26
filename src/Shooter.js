@@ -1,6 +1,7 @@
-var Shooter = {
+var Shooter = cc.Class.extend({
 		bulletSet:null,
 		plane:null,
+		gamelayer:null,
 		
 		ctor:function (plane) {
 			this.bulletSet = [];
@@ -56,19 +57,6 @@ var Shooter = {
 				}
 			}
 			
-//			while() {
-//				// pick inactive bullets
-//			}
-//			
-//			for() {
-//				// pick bullets for up
-//			}
-//			
-			
-//			zs.height
-//			
-//			this.plane.x
-//			this.plane.y
 		},
 		
 		// total: how many random number generated
@@ -87,4 +75,5 @@ var Shooter = {
 			return retarr;
 		}
 		
-};
+});
+
