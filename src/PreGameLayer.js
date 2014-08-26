@@ -1,5 +1,5 @@
 
-var preGameLayer = cc.Layer.extend({
+var PreGameLayer = cc.Layer.extend({
 	
 	theGameLayer:null,
 	
