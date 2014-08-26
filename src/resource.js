@@ -4,7 +4,8 @@ var res = {
     CloseSelected_png : "res/CloseSelected.png",
     plane_png: "res/plane.png",
     bullet:"res/bullet_red.png",
-    menu_png:"res/menu.png"
+    menu_png:"res/menu.png",
+    gameover_png:"res/gameOver.png"
 };
 
 var g_resources = [];

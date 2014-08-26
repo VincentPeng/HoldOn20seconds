@@ -63,8 +63,10 @@ var gameLayer = cc.Layer.extend({
 //			this.shooter.fireBullets (10);
 			this.coolingPeriod = 0.0;
 		}
-/*		if (this.shooter.planedShooted()){
-			cc.log("Game Over");
-		}*/
+		if (this.shooter.isTargetDead()){
+			var overLayer = new gameOverLayer(this);
+			this.gameState = 0;
+			this.addChild(over);
+		}
 	},
 });

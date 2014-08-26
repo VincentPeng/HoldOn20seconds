@@ -22,5 +22,4 @@ var Bullet = cc.Sprite.extend({
 			this.visible = false;
 		}
 	}
-
 });

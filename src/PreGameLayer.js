@@ -1,6 +1,5 @@
-
+// pre game layer
 var preGameLayer = cc.Layer.extend({
-	
 	theGameLayer:null,
 	
 	ctor:function (myGameLayer) {
