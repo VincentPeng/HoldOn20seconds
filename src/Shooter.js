@@ -1,11 +1,12 @@
-var Shooter = {
+var Shooter = cc.Class.extend({
 		bulletSet:null,
 		plane:null,
+		gamelayer:null,
 		
-		ctor:function (plane) {
-			this.bulletSet = New Array;
-			this.bulletSet.length = 500;
+		ctor:function (layer, plane) {
+			this.bulletSet = [];
 			this.plane = plane;
+			this.gamelayer = layer;
 		},
 		
 		fireBullets:function (bNum) {
@@ -20,6 +21,8 @@ var Shooter = {
 			downNum = Math.floor(tmp2/3*2);
 			rightNum = tmp2 - downNum;
 			
+			var bullet = new Bullet (1,2);
 		}
 		
-};
+});
+

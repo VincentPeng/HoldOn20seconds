@@ -1,11 +1,7 @@
 {
     "project_type": "javascript",
 
-<<<<<<< HEAD
     "debugMode" : 0,
-=======
-    "debugMode" : 1,
->>>>>>> 0024662556578980626f41b74be889bfa848a689
     "showFPS" : true,
     "frameRate" : 60,
     "id" : "gameCanvas",
@@ -17,6 +13,8 @@
     "jsList" : [
         "src/resource.js",
         "src/app.js",
-        "src/gameLayer.js"
+        "src/gameLayer.js",
+        "src/Shooter.js",
+        "src/Bullet.js"
     ]
 }
